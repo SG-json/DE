@@ -1,0 +1,71 @@
+{
+	"AuthView": {
+		"prefix": "av",
+		"body": [
+			"<TextBlock x:Name=\"tbckLogin\" HorizontalAlignment=\"Center\" Margin=\"0,83,0,0\" TextWrapping=\"Wrap\" Text=\"Login\" VerticalAlignment=\"Top\" FontSize=\"20\"/>",
+			"\t\t<TextBox x:Name=\"tbLogin\"  HorizontalAlignment=\"Center\" Margin=\"0,110,0,0\" TextWrapping=\"Wrap\" Text=\"{Binding Login, UpdateSourceTrigger=PropertyChanged}\" VerticalAlignment=\"Top\" Width=\"240\" FontSize=\"16\" BorderThickness=\"10,1,1,1\"/>",
+			"",
+			"\t\t<TextBlock x:Name=\"tbckPassword\" HorizontalAlignment=\"Center\" Margin=\"0,190,0,0\" TextWrapping=\"Wrap\" Text=\"Password\" VerticalAlignment=\"Top\" FontSize=\"20\"/>",
+			"\t\t<TextBox x:Name=\"tbPassword\"  HorizontalAlignment=\"Center\" Margin=\"0,217,0,0\" TextWrapping=\"Wrap\" Text=\"{Binding Password, UpdateSourceTrigger=PropertyChanged}\" VerticalAlignment=\"Top\" Width=\"240\" FontSize=\"16\" BorderThickness=\"10,1,1,1\"/>",
+			"",
+			"\t\t<Button x:Name=\"btnLogIn\" Content=\"Войти\" HorizontalAlignment=\"Center\" Margin=\"0,274,0,0\" VerticalAlignment=\"Top\" Width=\"80\" Background=\"#FFABADB3\" Command=\"{Binding LogIn}\" />"
+		]
+	},
+	"ListBox": {
+		"prefix": "lb",
+		"body": [
+			"<ListBox x:Name=\"lbRequests\" ItemsSource=\"{Binding Requests}\" Margin=\"0,10,0,-10\" >",
+			"\t<ListBox.ItemTemplate>",
+			"\t\t<DataTemplate>",
+			"\t\t\t<Grid Width=\"150\" Height=\"30\" Margin=\"0,0,0,5\">",
+			"\t\t\t\t<Grid.ColumnDefinitions>",
+			"\t\t\t\t\t<ColumnDefinition Width=\"30\" />",
+			"\t\t\t\t\t<ColumnDefinition Width=\"100\" />",
+			"\t\t\t\t\t<ColumnDefinition Width=\"20\" />",
+			"\t\t\t\t</Grid.ColumnDefinitions>",
+			"",
+			"\t\t\t\t<TextBox Grid.Column=\"0\" TextWrapping=\"Wrap\" Text=\"{Binding Id}\" FontSize=\"16\" />",
+			"\t\t\t\t<TextBox Grid.Column=\"1\" TextWrapping=\"Wrap\" Text=\"{Binding ClientId}\" FontSize=\"16\" />",
+			"",
+			"\t\t\t\t<Button Grid.Column=\"2\" Content=\"test\" Command=\"{Binding DataContext.Test, RelativeSource={RelativeSource AncestorType=Window}}\"  CommandParameter=\"{Binding Id}\" />",
+			"\t\t\t</Grid>",
+			"\t\t</DataTemplate>",
+			"\t</ListBox.ItemTemplate>",
+			"</ListBox>"
+		]
+	},
+	"SortBox": {
+		"prefix": "sb",
+		"body": [
+			"<ComboBox HorizontalAlignment=\"Left\" VerticalAlignment=\"Center\" Width=\"140\" Margin=\"10, 0, 0, 0\" SelectedIndex=\"0\">",
+			"\t<TextBlock>",
+			"\t\t<TextBlock.InputBindings>",
+			"\t\t\t<MouseBinding Command=\"{Binding SortItemsCommand}\" CommandParameter=\"Name\" MouseAction=\"LeftClick\" />",
+			"\t\t</TextBlock.InputBindings>",
+			"\t\tПо алфавиту (A-Z)",
+			"\t</TextBlock>",
+			"\t\t\t\t",
+			"\t<TextBlock>",
+			"\t\t<TextBlock.InputBindings>",
+			"\t\t\t<MouseBinding Command=\"{Binding SortItemsCommand}\" CommandParameter=\"PriceAsc\" MouseAction=\"LeftClick\" />",
+			"\t\t</TextBlock.InputBindings>",
+			"\t\tСначала недорогие",
+			"\t</TextBlock>",
+			"\t\t\t\t",
+			"\t<TextBlock>",
+			"\t\t<TextBlock.InputBindings>",
+			"\t\t\t<MouseBinding Command=\"{Binding SortItemsCommand}\" CommandParameter=\"PriceDesc\" MouseAction=\"LeftClick\" />",
+			"\t\t</TextBlock.InputBindings>",
+			"\t\tСначала дорогие",
+			"\t</TextBlock>",
+			"\t\t\t\t",
+			"\t<TextBlock>",
+			"\t\t<TextBlock.InputBindings>",
+			"\t\t\t<MouseBinding Command=\"{Binding SortItemsCommand}\" CommandParameter=\"RatingDesc\" MouseAction=\"LeftClick\" />",
+			"\t\t</TextBlock.InputBindings>",
+			"\t\tСначала с лучшей оценкой",
+			"\t</TextBlock>",
+			"</ComboBox>"
+		]
+	}
+}
